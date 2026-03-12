@@ -15,3 +15,25 @@ $ ls
 my-app
 ```
 
+## Playwrightを使ってみる
+
+### playwright-chromiumつまりブラウザの役を果たすJavaScriptライブラリを単体で使うやり方
+
+https://stephenhaney.com/2024/playwright-on-fly-io-with-bun/
+
+tests/main.ts をbun runコマンドで直接実行する。playwright-chromiumのブラウザがちゃんと使える。
+
+
+### playwrightをプロジェクトにインストールして動かすやり方
+
+```
+$ npx playwright@latest install
+```
+
+playwright.config.ts ファイルを書く。
+
+Playwrightによるテストを実行する
+```
+# npx playwright test 
+```
+
