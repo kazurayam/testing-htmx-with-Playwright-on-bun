@@ -16,8 +16,8 @@ describe('verify HTML as Text', async () => {
         const res = await client.$get({})
         expect(res.status).toBe(200)
         const text = await res.text()
-        console.log(text)
-        expect(text).toContain('Hello Hono!')
+        //console.log(text)
+        expect(text).toContain('Hello htmx!')
     })
 })
 
@@ -30,6 +30,6 @@ describe('verify HTML as DOM', async () => {
         const parser = new DOMParser()
         const doc = parser.parseFromString(text, 'text/html')
         const pre = doc.querySelector('p')
-        expect(pre?.textContent).toContain('Hello Hono!')
+        expect(pre?.textContent).toContain('Hello htmx!')
     })
 })

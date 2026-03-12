@@ -3,11 +3,15 @@
   "module": "src/index",
   "type": "module",
   "scripts": {
-    "dev": "bun run --hot src/index.ts",
-    "starter": "bun run --hot src/starter.tsx"
+    "dev": "bun run tests/main.ts",
+    "e2e": "bun run --hot src/index.tsx & bun test ./src/index.e2e.ts; kill $(ps aux | grep '[0-9] bun run --hot src/index.tsx' | awk '{print $2}')",
+    "build": "bun run typecheck && bun build --outdir dist --target bun --sourcemap src/main.ts --external electron",
+    "start": "bun run dist/main.js",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "hono": "^4.12.5"
+    "hono": "^4.12.5",
+    "playwright-chromium": "^1.58.2"
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "^20.6.1",
